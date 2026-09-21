@@ -79,7 +79,7 @@ export default function LogSheet({ log, totalDays, plan }) {
 
   return (
     <Paper className="log-sheet" component="article" sx={{ overflow: 'hidden' }}>
-      <Box sx={{ bgcolor: tokens.surfaceLow, px: 2, py: 1.5, borderBottom: `1px solid ${tokens.border}` }}>
+      <Box className="log-sheet-header" sx={{ bgcolor: tokens.surfaceLow, px: 2, py: 1.5, borderBottom: `1px solid ${tokens.border}` }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, flexWrap: 'wrap', mb: 1 }}>
           <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
             Driver&apos;s daily log (one calendar day — 24 hours)
@@ -136,7 +136,7 @@ export default function LogSheet({ log, totalDays, plan }) {
           alignItems: 'start',
         }}
       >
-        <Box sx={{ bgcolor: tokens.surfaceLow, borderRadius: 1, p: 1.5, minWidth: 0 }}>
+        <Box className="log-remarks" sx={{ bgcolor: tokens.surfaceLow, borderRadius: 1, p: 1.5, minWidth: 0 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, flexWrap: 'wrap', mb: 1 }}>
             <Typography variant="subtitle2" sx={{ textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Remarks &amp; duty change sequence

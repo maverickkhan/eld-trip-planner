@@ -32,13 +32,13 @@ function buildSummaryTiles(plan) {
   ]
 }
 
-export default function TripSummary({ plan, hideOnPrint = false }) {
+export default function TripSummary({ plan }) {
   const { locations } = plan
   const tiles = buildSummaryTiles(plan)
 
   return (
     <SectionCard
-      className={hideOnPrint ? 'no-print' : undefined}
+      className="trip-summary"
       icon={<AssignmentOutlinedIcon />}
       title="Trip summary"
       action={
@@ -53,6 +53,7 @@ export default function TripSummary({ plan, hideOnPrint = false }) {
         {locations.current.display_name} → {locations.pickup.display_name} → {locations.dropoff.display_name}
       </Typography>
       <Box
+        className="summary-tiles"
         sx={{
           display: 'grid',
           gap: 1,

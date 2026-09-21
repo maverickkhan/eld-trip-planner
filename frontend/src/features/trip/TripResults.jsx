@@ -18,8 +18,8 @@ export default function TripResults({ plan, tab, onTabChange }) {
   return (
     <Stack spacing={2}>
       <PermalinkBar id={plan.id} />
-      {/* Printing the Logs tab yields clean sheets; other tabs print their own content. */}
-      <TripSummary plan={plan} hideOnPrint={tab === 'logs'} />
+      {/* Print: the summary is page 1, then (on the Logs tab) one sheet per page. */}
+      <TripSummary plan={plan} />
 
       <Paper className="no-print">
         <Tabs

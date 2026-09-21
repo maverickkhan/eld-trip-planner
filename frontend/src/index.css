@@ -44,12 +44,24 @@
   height: auto;
 }
 
+/* ------------------------------------------------------------------------
+   Print: page 1 = trip summary, then exactly one daily log sheet per page.
+
+   The print layout is made explicit here (fixed column counts, compact
+   spacing) instead of relying on MUI's responsive breakpoints, because the
+   browser's print viewport width varies with paper size, orientation and
+   margins.  Every rule is sized so a sheet with up to ~8 duty changes fits a
+   landscape Letter/A4 page with browser headers and footers enabled, and
+   still fits portrait if the user picks it.  Nothing depends on
+   "background graphics" being enabled: borders and text carry the layout.
+   ------------------------------------------------------------------------ */
 @media print {
   @page {
-    size: landscape;
-    margin: 12mm;
+    size: letter landscape;
+    margin: 10mm;
   }
 
+  html,
   body {
     background: #fff !important;
   }
@@ -58,7 +70,7 @@
     display: none !important;
   }
 
-  /* Collapse the two-column shell so the sheets use the full page width. */
+  /* Collapse the two-column shell so content uses the full page width. */
   .planner-layout {
     display: block !important;
     min-height: 0 !important;
@@ -76,19 +88,33 @@
     display: block !important;
   }
 
-  .log-sheet .log-remark-row {
-    grid-template-columns: auto auto auto minmax(0, 1fr) auto !important;
+  /* --- Trip summary: compact, then start the sheets on a new page --- */
+  .trip-summary {
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  /* One daily log per landscape Letter page: compact spacing so a sheet
-     with up to ~8 duty changes fits, and force a page break after each. */
+  .trip-summary .summary-tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .trip-summary .summary-tiles > div {
+    padding: 6px 8px !important;
+    border: 1px solid #9ca3af !important;
+  }
+
+  /* --- Daily log sheet: one per page --- */
   .log-sheet {
     break-inside: avoid;
     page-break-inside: avoid;
     break-after: page;
     page-break-after: always;
-    margin-bottom: 0;
+    margin: 0 !important;
     border: 1px solid #111827 !important;
+    box-shadow: none !important;
   }
 
   .log-sheet:last-child {
@@ -96,47 +122,90 @@
     page-break-after: auto;
   }
 
+  .log-sheet .log-sheet-header {
+    padding: 6px 12px !important;
+    border-bottom: 1px solid #111827 !important;
+  }
+
+  .log-sheet .log-sheet-header > div:first-child {
+    margin-bottom: 4px !important;
+  }
+
+  .log-sheet .log-facts {
+    grid-template-columns: repeat(6, auto) !important;
+    justify-content: space-between !important;
+    gap: 2px 12px !important;
+  }
+
   .log-sheet .log-blank-fields {
-    margin-top: 6px !important;
-    gap: 8px 16px !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    margin-top: 4px !important;
+    gap: 2px 12px !important;
   }
 
   .log-sheet .log-blank-fields > div > div {
-    height: 14px !important;
+    height: 12px !important;
+    border-bottom: 1px solid #6b7280 !important;
   }
 
   .log-sheet .log-grid-wrap {
-    padding: 8px 16px !important;
+    padding: 6px 12px !important;
+  }
+
+  .log-grid-scroll {
+    overflow: visible !important;
+  }
+
+  .log-grid-scroll svg {
+    min-width: 0 !important;
   }
 
   .log-sheet .log-sheet-body {
-    padding-bottom: 10px !important;
-    gap: 12px !important;
+    grid-template-columns: minmax(0, 1fr) 230px !important;
+    gap: 10px !important;
+    padding: 0 12px 8px !important;
+  }
+
+  .log-sheet .log-remarks {
+    padding: 8px !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+  .log-sheet .log-remarks > div:first-child {
+    margin-bottom: 4px !important;
   }
 
   .log-sheet .log-remark-row {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
+    grid-template-columns: auto auto auto minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    padding: 1px 6px !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   .log-sheet .log-remark-row,
   .log-sheet .log-remark-row * {
-    font-size: 11px !important;
-    line-height: 15px !important;
+    font-size: 10px !important;
+    line-height: 13px !important;
   }
 
   .log-sheet .log-remark-row .MuiChip-root {
-    height: 16px !important;
-    font-size: 9px !important;
+    height: 14px !important;
+    font-size: 8.5px !important;
   }
 
-  .log-grid-scroll {
-    overflow: visible;
+  .log-sheet .log-recap {
+    padding: 8px !important;
+    border: 1px solid #6b7280 !important;
   }
 
-  .log-grid-scroll svg {
-    min-width: 0;
+  .log-sheet .log-recap * {
+    font-size: 10.5px !important;
+    line-height: 14px !important;
+  }
+
+  .log-sheet .log-recap > div {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
   }
 }
