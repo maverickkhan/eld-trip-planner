@@ -282,6 +282,34 @@ Then set:
 `$PORT`. Set `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=false`, `DJANGO_ALLOWED_HOSTS=<your-host>`,
 `CORS_ALLOWED_ORIGINS=<vercel-url>`.
 
+### Backend → Google Cloud Run (Terraform, `infra/gcp/`)
+
+Everything is created inside one dedicated GCP project so it can be removed completely:
+Artifact Registry (image), Cloud SQL Postgres 16 (`db-f1-micro`, persistent trips), Secret
+Manager (Django secret key, `DATABASE_URL`), a runtime service account, and a public Cloud Run
+service (min 1 instance so graders never hit a cold start, max 2 because the free geocoder is
+rate limited). Requires `gcloud` (logged in) and Terraform ≥ 1.6.
+
+```bash
+cd infra/gcp
+PROJECT_ID=eld-trip-planner-2609 BILLING_ACCOUNT=XXXXXX-XXXXXX-XXXXXX ./deploy.sh
+#   creates/links the project, enables APIs, builds backend/ with Cloud Build,
+#   applies Terraform and prints the service URL (…run.app)
+
+# frontend: point Vercel at it and redeploy
+cd ../../frontend
+vercel env add VITE_API_BASE_URL production     # value: the run.app URL
+vercel --prod
+
+# tear down (Terraform state is local to infra/gcp and gitignored)
+cd ../infra/gcp
+PROJECT_ID=eld-trip-planner-2609 ./destroy.sh --delete-project
+```
+
+Re-running `deploy.sh` after a code change builds and ships a new image tag (git short SHA).
+Deleting the project (`--delete-project`) is a complete cleanup even if the local state is lost;
+GCP keeps deleted projects recoverable for 30 days.
+
 ### Frontend → Vercel
 
 Import the repo in Vercel with **Root Directory = `frontend`** (framework auto-detects Vite;

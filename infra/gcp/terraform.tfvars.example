@@ -1,0 +1,10 @@
+# deploy.sh sets these through TF_VAR_* environment variables; this file only
+# documents them.  Copy to terraform.tfvars if you prefer running terraform directly.
+project_id      = "eld-trip-planner-2609"
+region          = "us-central1"
+name            = "eld-trip-planner"
+frontend_origin = "https://eld-trip-planner-beige-five.vercel.app"
+min_instances   = 1
+max_instances   = 2
+db_tier         = "db-f1-micro"
+# access_token is passed via TF_VAR_access_token="$(gcloud auth print-access-token)"
