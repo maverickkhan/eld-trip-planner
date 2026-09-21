@@ -1,0 +1,650 @@
+{
+ "inputs": {
+  "current_location": "Chicago, IL",
+  "pickup_location": "Joliet, IL",
+  "dropoff_location": "Dallas, TX",
+  "current_cycle_used_hours": 12.0,
+  "start_time": "2026-09-21T04:15"
+ },
+ "locations": {
+  "current": {
+   "query": "Chicago, IL",
+   "display_name": "Chicago, South Chicago Township, Cook County, Illinois, United States",
+   "lat": 41.8755616,
+   "lon": -87.6244212
+  },
+  "pickup": {
+   "query": "Joliet, IL",
+   "display_name": "Joliet, Will County, Illinois, United States",
+   "lat": 41.5263603,
+   "lon": -88.0840212
+  },
+  "dropoff": {
+   "query": "Dallas, TX",
+   "display_name": "Dallas, Dallas County, Texas, United States",
+   "lat": 32.7762719,
+   "lon": -96.7968559
+  }
+ },
+ "route": {
+  "distance_miles": 930.5,
+  "duration_hours": 17.54,
+  "raw_duration_hours": 17.54,
+  "legs": [
+   {
+    "name": "to_pickup",
+    "distance_miles": 44.5,
+    "duration_hours": 1.05,
+    "raw_duration_hours": 1.05
+   },
+   {
+    "name": "to_dropoff",
+    "distance_miles": 885.9,
+    "duration_hours": 16.49,
+    "raw_duration_hours": 16.49
+   }
+  ],
+  "geometry": {
+   "type": "LineString",
+   "coordinates": [
+    [
+     -87.624351,
+     41.875563
+    ],
+    [
+     -87.654911,
+     41.698921
+    ],
+    [
+     -88.006602,
+     41.51399
+    ],
+    [
+     -88.159982,
+     41.482009
+    ],
+    [
+     -88.450036,
+     41.098566
+    ],
+    [
+     -88.78333,
+     40.659325
+    ],
+    [
+     -89.022472,
+     40.446992
+    ],
+    [
+     -89.244591,
+     40.248945
+    ],
+    [
+     -89.475788,
+     40.030931
+    ],
+    [
+     -89.595705,
+     39.80061
+    ],
+    [
+     -89.644812,
+     39.471347
+    ],
+    [
+     -89.843143,
+     38.88205
+    ],
+    [
+     -90.167425,
+     38.618372
+    ],
+    [
+     -90.306336,
+     38.606732
+    ],
+    [
+     -90.464383,
+     38.543062
+    ],
+    [
+     -90.626327,
+     38.506723
+    ],
+    [
+     -90.84157,
+     38.482802
+    ],
+    [
+     -90.965593,
+     38.381967
+    ],
+    [
+     -91.304692,
+     38.128588
+    ],
+    [
+     -91.775137,
+     37.959556
+    ],
+    [
+     -92.030441,
+     37.86375
+    ],
+    [
+     -92.199546,
+     37.817752
+    ],
+    [
+     -92.598112,
+     37.731373
+    ],
+    [
+     -92.950583,
+     37.329107
+    ],
+    [
+     -93.592145,
+     37.186208
+    ],
+    [
+     -94.479154,
+     37.046628
+    ],
+    [
+     -94.952084,
+     36.716403
+    ],
+    [
+     -95.275496,
+     36.426684
+    ],
+    [
+     -95.336858,
+     36.244813
+    ],
+    [
+     -95.402941,
+     35.887225
+    ],
+    [
+     -95.482765,
+     35.597798
+    ],
+    [
+     -95.592622,
+     35.271682
+    ],
+    [
+     -95.817364,
+     34.858542
+    ],
+    [
+     -96.070861,
+     34.451628
+    ],
+    [
+     -96.27259,
+     34.13415
+    ],
+    [
+     -96.509941,
+     33.869243
+    ],
+    [
+     -96.609997,
+     33.60588
+    ],
+    [
+     -96.634814,
+     33.222924
+    ],
+    [
+     -96.716442,
+     32.975055
+    ],
+    [
+     -96.782192,
+     32.829514
+    ],
+    [
+     -96.79675,
+     32.775945
+    ]
+   ]
+  }
+ },
+ "schedule": {
+  "start_time": "2026-09-21T04:15",
+  "end_time": "2026-09-22T10:17",
+  "events": [
+   {
+    "status": "driving",
+    "type": "drive",
+    "label": "Driving (to pickup)",
+    "start": "2026-09-21T04:15",
+    "end": "2026-09-21T05:18",
+    "duration_hours": 1.05,
+    "start_miles": 0.0,
+    "end_miles": 44.5,
+    "distance_miles": 44.5,
+    "leg": "to_pickup",
+    "is_stop": false,
+    "location": {
+     "lat": 41.875562,
+     "lon": -87.624421
+    }
+   },
+   {
+    "status": "on_duty",
+    "type": "pickup",
+    "label": "Pickup (loading)",
+    "start": "2026-09-21T05:18",
+    "end": "2026-09-21T06:18",
+    "duration_hours": 1.0,
+    "start_miles": 44.5,
+    "end_miles": 44.5,
+    "distance_miles": 0.0,
+    "leg": "to_pickup",
+    "is_stop": true,
+    "location": {
+     "lat": 41.52636,
+     "lon": -88.084021
+    }
+   },
+   {
+    "status": "driving",
+    "type": "drive",
+    "label": "Driving (to dropoff)",
+    "start": "2026-09-21T06:18",
+    "end": "2026-09-21T14:18",
+    "duration_hours": 8.0,
+    "start_miles": 44.5,
+    "end_miles": 474.4,
+    "distance_miles": 429.8,
+    "leg": "to_dropoff",
+    "is_stop": false,
+    "location": {
+     "lat": 41.52595,
+     "lon": -88.083934
+    }
+   },
+   {
+    "status": "off_duty",
+    "type": "break",
+    "label": "30-minute break",
+    "start": "2026-09-21T14:18",
+    "end": "2026-09-21T14:48",
+    "duration_hours": 0.5,
+    "start_miles": 474.4,
+    "end_miles": 474.4,
+    "distance_miles": 0.0,
+    "leg": null,
+    "is_stop": true,
+    "location": {
+     "lat": 37.560338,
+     "lon": -92.787256
+    }
+   },
+   {
+    "status": "driving",
+    "type": "drive",
+    "label": "Driving (to dropoff)",
+    "start": "2026-09-21T14:48",
+    "end": "2026-09-21T16:45",
+    "duration_hours": 1.95,
+    "start_miles": 474.4,
+    "end_miles": 579.1,
+    "distance_miles": 104.7,
+    "leg": "to_dropoff",
+    "is_stop": false,
+    "location": {
+     "lat": 37.560338,
+     "lon": -92.787256
+    }
+   },
+   {
+    "status": "sleeper_berth",
+    "type": "rest",
+    "label": "10-hour rest (sleeper berth)",
+    "start": "2026-09-21T16:45",
+    "end": "2026-09-22T02:45",
+    "duration_hours": 10.0,
+    "start_miles": 579.1,
+    "end_miles": 579.1,
+    "distance_miles": 0.0,
+    "leg": null,
+    "is_stop": true,
+    "location": {
+     "lat": 37.069652,
+     "lon": -94.403149
+    }
+   },
+   {
+    "status": "driving",
+    "type": "drive",
+    "label": "Driving (to dropoff)",
+    "start": "2026-09-22T02:45",
+    "end": "2026-09-22T09:17",
+    "duration_hours": 6.54,
+    "start_miles": 579.1,
+    "end_miles": 930.5,
+    "distance_miles": 351.3,
+    "leg": "to_dropoff",
+    "is_stop": false,
+    "location": {
+     "lat": 37.069652,
+     "lon": -94.403149
+    }
+   },
+   {
+    "status": "on_duty",
+    "type": "dropoff",
+    "label": "Drop-off (unloading)",
+    "start": "2026-09-22T09:17",
+    "end": "2026-09-22T10:17",
+    "duration_hours": 1.0,
+    "start_miles": 930.5,
+    "end_miles": 930.5,
+    "distance_miles": 0.0,
+    "leg": "to_dropoff",
+    "is_stop": true,
+    "location": {
+     "lat": 32.776272,
+     "lon": -96.796856
+    }
+   }
+  ],
+  "stops": [
+   {
+    "status": "on_duty",
+    "type": "pickup",
+    "label": "Pickup (loading)",
+    "start": "2026-09-21T05:18",
+    "end": "2026-09-21T06:18",
+    "duration_hours": 1.0,
+    "start_miles": 44.5,
+    "end_miles": 44.5,
+    "distance_miles": 0.0,
+    "leg": "to_pickup",
+    "is_stop": true,
+    "location": {
+     "lat": 41.52636,
+     "lon": -88.084021
+    }
+   },
+   {
+    "status": "off_duty",
+    "type": "break",
+    "label": "30-minute break",
+    "start": "2026-09-21T14:18",
+    "end": "2026-09-21T14:48",
+    "duration_hours": 0.5,
+    "start_miles": 474.4,
+    "end_miles": 474.4,
+    "distance_miles": 0.0,
+    "leg": null,
+    "is_stop": true,
+    "location": {
+     "lat": 37.560338,
+     "lon": -92.787256
+    }
+   },
+   {
+    "status": "sleeper_berth",
+    "type": "rest",
+    "label": "10-hour rest (sleeper berth)",
+    "start": "2026-09-21T16:45",
+    "end": "2026-09-22T02:45",
+    "duration_hours": 10.0,
+    "start_miles": 579.1,
+    "end_miles": 579.1,
+    "distance_miles": 0.0,
+    "leg": null,
+    "is_stop": true,
+    "location": {
+     "lat": 37.069652,
+     "lon": -94.403149
+    }
+   },
+   {
+    "status": "on_duty",
+    "type": "dropoff",
+    "label": "Drop-off (unloading)",
+    "start": "2026-09-22T09:17",
+    "end": "2026-09-22T10:17",
+    "duration_hours": 1.0,
+    "start_miles": 930.5,
+    "end_miles": 930.5,
+    "distance_miles": 0.0,
+    "leg": "to_dropoff",
+    "is_stop": true,
+    "location": {
+     "lat": 32.776272,
+     "lon": -96.796856
+    }
+   }
+  ],
+  "summary": {
+   "driving_hours": 17.54,
+   "on_duty_hours": 2.0,
+   "off_duty_hours": 0.5,
+   "sleeper_berth_hours": 10.0,
+   "total_hours": 30.04,
+   "total_miles": 930.5,
+   "total_days": 2,
+   "fuel_stops": 0,
+   "breaks": 1,
+   "rests": 1,
+   "restarts": 0,
+   "cycle_used_at_start": 12.0,
+   "cycle_used_at_end": 31.54
+  }
+ },
+ "daily_logs": [
+  {
+   "date": "2026-09-21",
+   "day_number": 1,
+   "entries": [
+    {
+     "status": "off_duty",
+     "type": "pre_trip",
+     "label": "Off duty (before trip)",
+     "start": "2026-09-21T00:00",
+     "end": "2026-09-21T04:15",
+     "start_minute": 0,
+     "end_minute": 255,
+     "duration_hours": 4.25,
+     "start_miles": 0.0,
+     "end_miles": 0.0,
+     "location": {
+      "lat": 41.875562,
+      "lon": -87.624421
+     }
+    },
+    {
+     "status": "driving",
+     "type": "drive",
+     "label": "Driving (to pickup)",
+     "start": "2026-09-21T04:15",
+     "end": "2026-09-21T05:18",
+     "start_minute": 255,
+     "end_minute": 318,
+     "duration_hours": 1.05,
+     "start_miles": 0.0,
+     "end_miles": 44.5,
+     "location": {
+      "lat": 41.875562,
+      "lon": -87.624421
+     }
+    },
+    {
+     "status": "on_duty",
+     "type": "pickup",
+     "label": "Pickup (loading)",
+     "start": "2026-09-21T05:18",
+     "end": "2026-09-21T06:18",
+     "start_minute": 318,
+     "end_minute": 378,
+     "duration_hours": 1.0,
+     "start_miles": 44.5,
+     "end_miles": 44.5,
+     "location": {
+      "lat": 41.52636,
+      "lon": -88.084021
+     }
+    },
+    {
+     "status": "driving",
+     "type": "drive",
+     "label": "Driving (to dropoff)",
+     "start": "2026-09-21T06:18",
+     "end": "2026-09-21T14:18",
+     "start_minute": 378,
+     "end_minute": 858,
+     "duration_hours": 8.0,
+     "start_miles": 44.5,
+     "end_miles": 474.4,
+     "location": {
+      "lat": 41.52595,
+      "lon": -88.083934
+     }
+    },
+    {
+     "status": "off_duty",
+     "type": "break",
+     "label": "30-minute break",
+     "start": "2026-09-21T14:18",
+     "end": "2026-09-21T14:48",
+     "start_minute": 858,
+     "end_minute": 888,
+     "duration_hours": 0.5,
+     "start_miles": 474.4,
+     "end_miles": 474.4,
+     "location": {
+      "lat": 37.560338,
+      "lon": -92.787256
+     }
+    },
+    {
+     "status": "driving",
+     "type": "drive",
+     "label": "Driving (to dropoff)",
+     "start": "2026-09-21T14:48",
+     "end": "2026-09-21T16:45",
+     "start_minute": 888,
+     "end_minute": 1005,
+     "duration_hours": 1.95,
+     "start_miles": 474.4,
+     "end_miles": 579.1,
+     "location": {
+      "lat": 37.560338,
+      "lon": -92.787256
+     }
+    },
+    {
+     "status": "sleeper_berth",
+     "type": "rest",
+     "label": "10-hour rest (sleeper berth)",
+     "start": "2026-09-21T16:45",
+     "end": "2026-09-22T00:00",
+     "start_minute": 1005,
+     "end_minute": 1440,
+     "duration_hours": 7.25,
+     "start_miles": 579.1,
+     "end_miles": 579.1,
+     "location": {
+      "lat": 37.069652,
+      "lon": -94.403149
+     }
+    }
+   ],
+   "totals": {
+    "off_duty": 4.75,
+    "sleeper_berth": 7.25,
+    "driving": 11.0,
+    "on_duty": 1.0
+   },
+   "miles_driven": 579.1
+  },
+  {
+   "date": "2026-09-22",
+   "day_number": 2,
+   "entries": [
+    {
+     "status": "sleeper_berth",
+     "type": "rest",
+     "label": "10-hour rest (sleeper berth)",
+     "start": "2026-09-22T00:00",
+     "end": "2026-09-22T02:45",
+     "start_minute": 0,
+     "end_minute": 165,
+     "duration_hours": 2.75,
+     "start_miles": 579.1,
+     "end_miles": 579.1,
+     "location": {
+      "lat": 37.069652,
+      "lon": -94.403149
+     }
+    },
+    {
+     "status": "driving",
+     "type": "drive",
+     "label": "Driving (to dropoff)",
+     "start": "2026-09-22T02:45",
+     "end": "2026-09-22T09:17",
+     "start_minute": 165,
+     "end_minute": 557,
+     "duration_hours": 6.54,
+     "start_miles": 579.1,
+     "end_miles": 930.5,
+     "location": {
+      "lat": 37.069652,
+      "lon": -94.403149
+     }
+    },
+    {
+     "status": "on_duty",
+     "type": "dropoff",
+     "label": "Drop-off (unloading)",
+     "start": "2026-09-22T09:17",
+     "end": "2026-09-22T10:17",
+     "start_minute": 557,
+     "end_minute": 617,
+     "duration_hours": 1.0,
+     "start_miles": 930.5,
+     "end_miles": 930.5,
+     "location": {
+      "lat": 32.776272,
+      "lon": -96.796856
+     }
+    },
+    {
+     "status": "off_duty",
+     "type": "post_trip",
+     "label": "Off duty (trip complete)",
+     "start": "2026-09-22T10:17",
+     "end": "2026-09-23T00:00",
+     "start_minute": 617,
+     "end_minute": 1440,
+     "duration_hours": 13.71,
+     "start_miles": 930.5,
+     "end_miles": 930.5,
+     "location": {
+      "lat": 32.775945,
+      "lon": -96.79675
+     }
+    }
+   ],
+   "totals": {
+    "off_duty": 13.71,
+    "sleeper_berth": 2.75,
+    "driving": 6.54,
+    "on_duty": 1.0
+   },
+   "miles_driven": 351.3
+  }
+ ],
+ "id": 1,
+ "created_at": "2026-09-21T04:15:00"
+}

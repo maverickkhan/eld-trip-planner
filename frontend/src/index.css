@@ -1,0 +1,142 @@
+/* Global overrides only; component styling lives in the MUI theme (src/theme.js). */
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Leaflet popup styled like the design system's floating surfaces. */
+.leaflet-popup-content-wrapper {
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  box-shadow:
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -2px rgba(0, 0, 0, 0.05);
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  min-width: 220px;
+}
+
+.leaflet-popup-tip {
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+}
+
+.leaflet-container {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #eff4ff;
+}
+
+/* Log sheet SVG scales with its container; keep a legible minimum width. */
+.log-grid-scroll {
+  overflow-x: auto;
+}
+
+.log-grid-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 860px;
+  height: auto;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 12mm;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Collapse the two-column shell so the sheets use the full page width. */
+  .planner-layout {
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  .planner-main {
+    padding: 0 !important;
+  }
+
+  .planner-main > * {
+    max-width: none !important;
+  }
+
+  .print-root {
+    display: block !important;
+  }
+
+  .log-sheet .log-remark-row {
+    grid-template-columns: auto auto auto minmax(0, 1fr) auto !important;
+  }
+
+  /* One daily log per landscape Letter page: compact spacing so a sheet
+     with up to ~8 duty changes fits, and force a page break after each. */
+  .log-sheet {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: page;
+    page-break-after: always;
+    margin-bottom: 0;
+    border: 1px solid #111827 !important;
+  }
+
+  .log-sheet:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .log-sheet .log-blank-fields {
+    margin-top: 6px !important;
+    gap: 8px 16px !important;
+  }
+
+  .log-sheet .log-blank-fields > div > div {
+    height: 14px !important;
+  }
+
+  .log-sheet .log-grid-wrap {
+    padding: 8px 16px !important;
+  }
+
+  .log-sheet .log-sheet-body {
+    padding-bottom: 10px !important;
+    gap: 12px !important;
+  }
+
+  .log-sheet .log-remark-row {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .log-sheet .log-remark-row,
+  .log-sheet .log-remark-row * {
+    font-size: 11px !important;
+    line-height: 15px !important;
+  }
+
+  .log-sheet .log-remark-row .MuiChip-root {
+    height: 16px !important;
+    font-size: 9px !important;
+  }
+
+  .log-grid-scroll {
+    overflow: visible;
+  }
+
+  .log-grid-scroll svg {
+    min-width: 0;
+  }
+}

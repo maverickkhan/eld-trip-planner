@@ -1,0 +1,42 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Creates the Django API as a web service.  Uses SQLite on the free tier
+# (resets on each deploy - fine for a demo); uncomment the database block and
+# DATABASE_URL to persist trips in Postgres.
+services:
+  - type: web
+    name: eld-trip-planner-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    preDeployCommand: python manage.py migrate --noinput
+    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
+    healthCheckPath: /api/health/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "false"
+      # Render redirects HTTP -> HTTPS at its edge and health-checks over HTTP.
+      - key: DJANGO_SECURE_SSL_REDIRECT
+        value: "false"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: localhost,127.0.0.1
+      - key: CORS_ALLOWED_ORIGINS
+        # Replace with the Vercel production URL once known, e.g.
+        # https://eld-trip-planner.vercel.app
+        value: http://localhost:5173
+      - key: GEOCODER_USER_AGENT
+        value: eld-trip-planner/0.1 (render deployment)
+      - key: TRUCK_MAX_AVERAGE_SPEED_MPH
+        value: "60"
+      # - key: DATABASE_URL
+      #   fromDatabase:
+      #     name: eld-trip-planner-db
+      #     property: connectionString
+
+# databases:
+#   - name: eld-trip-planner-db
+#     plan: free
