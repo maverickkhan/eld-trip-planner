@@ -6,3 +6,4 @@ terraform.tfstate.backup
 *.auto.tfvars
 terraform.tfvars
 crash.log
+.terraform.tfstate.lock.info
