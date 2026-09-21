@@ -10,6 +10,11 @@ geocodes the stops, routes the trip, runs an FMCSA Hours-of-Service rule engine,
 3. One auto-filled ELD daily log sheet per calendar day, drawn as the familiar 24-hour grid
    with duty-status lines.
 
+**Live demo:** https://eld-trip-planner-beige-five.vercel.app (frontend, Vercel) ·
+API https://eld-trip-planner-api-yedfeh4hhq-uc.a.run.app/api/health/ (Google Cloud Run + Cloud SQL).
+Try “Fill example” → “Plan trip”, or open a saved multi-day plan such as `/trips/3` (6 days, 34-h
+restart) or `/trips/4` (8 days, 3 fuel stops).
+
 **Stack:** Django 5 + Django REST Framework (API) · React 19 + Vite + Material UI (frontend) ·
 Leaflet · OSRM (routing) · Nominatim (geocoding).
 
